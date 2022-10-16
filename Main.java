@@ -90,5 +90,5 @@ public class Main {
         if(x*x==y*y+z*z && x*x+y*y==z*z && x*x+z*z==y*y)
             return true;
         else return false;
-    }
+    } 
 }
