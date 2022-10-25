@@ -1,94 +1,70 @@
 import java.util.Random;
 import java.util.Scanner;
-import java.util.function.IntToDoubleFunction;
 
 public class Main {
-    public static void main(String[] args)
-    {
-        String imie = "Jan", miasto = "Rzeszów";
-        int wiek = 24;
-        //      System.out.println("Imie: "+imie+ ", miasto: "+miasto+ ", wiek: "+wiek);
+    static Random generator = new Random();
+    static Scanner input = new Scanner(System.in);
+    public static void main(String[] args) {System.out.println("Lab3 - Prog. Objektowe - tablice");
 
+        int[] tab = new int[10], tab1 = {3,1,2,5,31,2,55};
+        losowanie(tab);
+        zad1(tab);
+        zad2(tab); zad2(tab1);
+        String[] zad3 = {"Ala", "miała", "KoTa"};
+        zad3(zad3);
 
-
-                                                    //______Wczytywanie danych z klawiatury
-        Scanner input = new Scanner(System.in);
-        System.out.printf("Podaj wiek: ");
-        wiek = input.nextInt();
-
-/*
-        System.out.printf("Podaj imię: ");
-        imie = input.next();
-        System.out.println("Next " + imie);
-
-        imie = input.next();
-        System.out.println("Next pattern " + imie);
-
-        imie = input.nextLine();
-        System.out.println("NextLine " + imie);
-*/
-
-
-        System.out.println(getMyName());
-        System.out.println(getMyAge());
-        System.out.println("Podaj dwie liczby: ");
-        int a, b;
-        a = input.nextInt();    b = input.nextInt();
-        obliczenia(a,b);
-        System.out.println("Zad 3: "+zad3(a));
-        System.out.println("Zad 4: "+zad4(a));
-        System.out.println("Zad 5: "+zad5((double)a));
-        System.out.println("Zad 6: "+zad6((double)a));
-        System.out.println("Podaj dwie liczby, z których przedziału będzie program losował do zadania 7: ");
-        a = input.nextInt();    b = input.nextInt();
-        Random generator = new Random();
-        int x = generator.nextInt(b-a)+a;
-        int y = generator.nextInt(b-a)+a;
-        int z = generator.nextInt(b-a)+a;
-        System.out.println("Zad 7: "+zad7(x,y,z));
     }
+    public static void zad1(int[] tab){
+        int suma=0;
+        double srednia=0;
 
-
-    //________________________________________________________________________________
-//  ___Zadanie 1___
-    public static String getMyName(){
-        return "Bogdan";
-    }
-    public static int getMyAge(){
-        return 21;
-    }
-
-    //  ___Zadanie 2___
-    public static void obliczenia(int l1, int l2){
-        System.out.println( "Suma "+ l1 +" i "+l2+ " = "+(l1+l2));
-        System.out.println( "Różnica "+ l1 +" i "+l2+ " = "+(l1-l2));
-        System.out.println( "Iloczyn "+ l1 +" i "+l2+ " = "+(l1*l2));
-    }
-    //  ___Zadanie 3___
-    public static boolean zad3(int a){
-        if(a%2==0){
-            return true;
+        for(int i=0; i<tab.length; i++){
+            suma += tab[i];
         }
-        else return false;
-    }
-    public static boolean zad4(int a) {
-        if(a%3==0 && a%5==0){
-            return true;
+        srednia = suma/tab.length;
+        System.out.println("Zad1: Suma="+suma+"  Średnia="+srednia);
+        suma=0;
+        for(int i:tab){
+            suma+=i;
         }
-        else return false;
+        srednia = suma/tab.length;
+        System.out.println("Zad1: Suma="+suma+"  Średnia="+srednia);
     }
-    public static double zad5(double a){
-        a=Math.pow(a,3);
-        return a;
+
+    public static void zad2(int[] tab){
+        System.out.println("Zad2: ");
+        for (int i=0; i<tab.length; i+=2) {
+            System.out.println(tab[i]);
+        }
     }
-    public static double zad6(double a){
-        a=Math.sqrt(a);
-        return a;
+
+    public static void zad3(String[] yu){
+        System.out.print("Zad3: ");
+        for(String i:yu){
+            System.out.print(i.toUpperCase()+" ");
+        }
+        System.out.println(" ");
     }
-    //___Zadanie 7___
-    public static boolean zad7(int x,int y,int z){
-        if(x*x==y*y+z*z && x*x+y*y==z*z && x*x+z*z==y*y)
-            return true;
-        else return false;
-    } 
+
+    public static void zad4(){
+        String[] zdanie = new String[5];
+        for(int i = 0; i<zdanie.length;i++)
+        zdanie[i] = input.nextLine();
+    }
+
+
+
+
+
+
+
+
+
+
+
+    private static void losowanie(int[] tab){
+        for(int i=0; i<tab.length; i++){
+            tab[i] = generator.nextInt(10)+10;
+            System.out.println(tab[i]);}
+    }
 }
