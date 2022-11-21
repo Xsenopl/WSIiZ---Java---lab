@@ -16,11 +16,37 @@ public class Main {
         Prostokat pr1 = new Prostokat(2,6);
         Trojkat t1 = new Trojkat(3,3);
 
-        f1.opis(); System.out.println("F1 kolor = "+ f1.getKolor());
+        System.out.println(f1.opis()+ " "+ f1.getKolor());
         System.out.println("Pr1 P = "+pr1.getPowierzchnia());
 
-        pr1.przesun(1,1);
-    //    System.out.printf(pr1.punkt.getY());
+        System.out.println(pr1.punkt.getY() +" "+pr1.punkt.getY());
+        pr1.przesun(3,5);                   //15
+        System.out.println(pr1.punkt.getX() +" "+pr1.punkt.getY());
+        System.out.println(f1.punkt.getX());
+        System.out.println(t1.punkt.getY());
 
+        Kwadrat k1 =new Kwadrat(); k1.setA(6);  //17
+        //18 i 19
+        System.out.println(f1.opis());
+        System.out.println(pr1.opis());
+        System.out.println(t1.opis());
+        System.out.println(k1.opis());
+
+        //21
+        Okrag o1 = new Okrag();
+        Okrag o2 = new Okrag(p3,5);
+        o1.setPromien(2);
+        System.out.println(o1.getPowierzcnia());
+        System.out.println(o1.getPromien());
+        System.out.println(o1.getSrednica());
+        o1.wSrodku(p3);  o2.wSrodku(p3);
+
+//________________________________________________________________________________
+        System.out.println("\n\nZadanie 2. Z samochodami");
+        Samochod sam1= new Samochod("Audi", "As","Czarny", 4,2000, -1  );
+        Samochod sam2= new Samochod();
+        SamochodOsobowy samo1= new SamochodOsobowy();
+
+        sam1.opis(); sam2.opis(); samo1.opis();
     }
 }
