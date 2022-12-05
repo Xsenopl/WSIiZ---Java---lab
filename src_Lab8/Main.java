@@ -19,5 +19,5 @@ public class Main {
 
 
 
-    }
+    } // NIedokończone, bo męczyłem się nad wyjątkami.
 }
