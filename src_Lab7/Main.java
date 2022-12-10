@@ -32,10 +32,27 @@ public class Main {
 
     //ZAD 3___________
         System.out.println("\n\n Zad 3 ");
-        Adres a1 = new Adres("ul", "poczta", "Rze", 32);
-        a1.wypisz();
-        Adres a2 = new Adres("nuill", null, "", -6);
-        a2.wypisz();
+
+        try {
+            Adres adres1 = new Adres("Sucharskiego","35-959","Rzeszów",2);
+            System.out.println(adres1.toString());
+
+        } catch (NieprawidlowyAdresException e) {
+            System.out.println("Blad adresu: "+ e.getMessage());
+        }try {
+            Adres adres1 = new Adres("Sucharskiego","35-959",null,-2);
+            System.out.println(adres1.toString());
+
+        } catch (NieprawidlowyAdresException e) {
+            System.out.println("Blad adresu: " + e.getMessage());
+        } try {
+            Adres adres1 = new Adres("Jana","","",2);                           // "" nie jest nullem
+            System.out.println(adres1.toString());
+
+        } catch (NieprawidlowyAdresException e) {
+            System.out.println("Blad adresu: " + e.getMessage());
+        }
+
 
     }
 

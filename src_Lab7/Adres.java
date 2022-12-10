@@ -20,62 +20,54 @@ public class Adres {
     }
 
     public void setUlica(String ulica) throws NieprawidlowyAdresException{
-        if(ulica!=null){
-            throw  new IllegalArgumentException(String.format("Ulica nie może być nullem!"));
+
+    }
+    public void setKodPocztowy(String kodPocztowy) throws NieprawidlowyAdresException {
+
+    }
+    public void setMiasto(String miasto) throws NieprawidlowyAdresException  {
+
+    }
+    public void setNrDomu(int nrDomu) throws NieprawidlowyAdresException{
+
+    }
+
+    public Adres(String ulica, String kodPocztowy, String miasto, int nrDomu) throws NieprawidlowyAdresException{
+        String opisBledu = "";
+        if (ulica == null) {
+            opisBledu += "Ulica nie moze byc nullem. ";
+        }
+        if (kodPocztowy == null) {
+            opisBledu += "Kod pocztowy nie moze byc nullem. ";
+        }
+        if (miasto == null) {
+            opisBledu += "Miasto nie moze byc nullem.";
+        }
+        if (nrDomu <= 0) {
+            opisBledu += "Numer domu musi być liczbą dodatnią. ";
+        }
+        if (!opisBledu.equals("")) {                                    //Porównuje z opisB z argumentem metody equals
+            throw new NieprawidlowyAdresException(opisBledu);
         }
 
         this.ulica = ulica;
-    }
-    public void setKodPocztowy(String kodPocztowy) throws NieprawidlowyAdresException {
-        if(kodPocztowy==null){
-            throw  new IllegalArgumentException(String.format("KodPocztowy nie może być nullem!"));
-        }
         this.kodPocztowy = kodPocztowy;
-    }
-    public void setMiasto(String miasto) throws NieprawidlowyAdresException  {
-        if(miasto==null)
-            throw  new IllegalArgumentException(String.format("Miasto nie może być nullem!"));
         this.miasto = miasto;
-    }
-    public void setNrDomu(int nrDomu) throws NieprawidlowyAdresException{
-        if(nrDomu<=0) {
-            throw new IllegalArgumentException(String.format("Numer domu nie może być <0"));
-        }
         this.nrDomu = nrDomu;
+
     }
 
-    public Adres(String ulica, String kodPocztowy, String miasto, int nrDomu) {
 
-        //     this.setUlica(ulica);
-        try {
-            this.setUlica(ulica);
-        } catch (NieprawidlowyAdresException e) {
-        } finally {
-
-            try {
-                this.setKodPocztowy(kodPocztowy);
-            } catch (NieprawidlowyAdresException e) {
-            } finally {
-
-
-                try {
-                    this.setMiasto(miasto);
-                } catch (NieprawidlowyAdresException e) {
-                }
-
-                try {
-                    this.setNrDomu(nrDomu);
-                } catch (NieprawidlowyAdresException e) {
-                }
-
-                //
-                //
-
-            }
-        }
+    @Override
+    public String toString() {
+        return "Adres{" +
+                "ulica='" + ulica + '\'' +
+                ", kodPocztowy='" + kodPocztowy + '\'' +
+                ", miasto='" + miasto + '\'' +
+                ", nrDomu=" + nrDomu +
+                '}';
     }
-}       //Siedzę nad tym zadaniem zdecydowanie zbyt długo. Nie mam pomysłu na wykonanie tego, a robiłem różne rzeczy.
-
+}
 
 class NieprawidlowyAdresException extends Exception {
 //    public NieprawidlowyAdresException(){}
